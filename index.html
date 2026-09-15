@@ -362,6 +362,51 @@
       margin-top: 4px;
     }
 
+    /* EXPERIENCE TIMELINE */
+
+    .experience-list {
+      margin-top: 55px;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .experience-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .experience-period {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .experience-details h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .experience-details .company {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .experience-details p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
     /* SKILLS */
 
     .skills-grid {
@@ -596,9 +641,10 @@
 
       .hero-grid,
       .about-grid,
-      .contact-box {
+      .contact-box,
+      .experience-item {
         grid-template-columns: 1fr;
-        gap: 55px;
+        gap: 25px;
       }
 
       .hero {
@@ -696,6 +742,7 @@
 
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#certificates">Certificates</a>
@@ -866,6 +913,44 @@
               <div class="stat-label">Featured Projects</div>
             </div>
 
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+
+      <div class="container">
+
+        <div class="section-label">
+          Career Path
+        </div>
+
+        <h2 class="section-title">
+          Experience.
+        </h2>
+
+        <p class="section-intro">
+          Professional background, technical support, and hands-on engineering roles.
+        </p>
+
+        <div class="experience-list">
+
+          <div class="experience-item">
+            <div class="experience-period">Professional Role</div>
+            <div class="experience-details">
+              <h3>Technical Support Intern</h3>
+              <div class="company">Sybrid Private Limited</div>
+              <p>
+                Provided technical support, diagnosed and resolved IT infrastructure issues, 
+                and assisted with troubleshooting networks and system configurations.
+              </p>
+            </div>
           </div>
 
         </div>
