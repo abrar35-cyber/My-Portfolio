@@ -1,2202 +1,1358 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Abrar Ahmed — AI, Data and Software Developer based in Karachi, Pakistan.">
-
-    <title>Abrar Ahmed — AI, Data & Software Developer</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap"
-        rel="stylesheet">
-
-    <style>
-
-        /* =========================================================
-           ROOT
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --bg: #ffffff;
-            --paper: #f6f3ef;
-            --soft: #ece8e3;
-
-            --ink: #17213b;
-            --body: #596174;
-            --muted: #8b93a3;
-
-            --accent: #df604f;
-            --accent-soft: #fff0ec;
-
-            --line: #e4e1dc;
-
-            --card: #ffffff;
-
-            --shadow:
-                0 18px 55px rgba(23, 33, 59, 0.08);
-        }
-
-        [data-theme="dark"] {
-            --bg: #0d1118;
-            --paper: #141922;
-            --soft: #1d2430;
-
-            --ink: #f0f2f7;
-            --body: #aab1bf;
-            --muted: #717b8c;
-
-            --accent: #f07864;
-            --accent-soft: rgba(240, 120, 100, 0.1);
-
-            --line: #252d3a;
-
-            --card: #141922;
-
-            --shadow:
-                0 18px 55px rgba(0, 0, 0, 0.3);
-        }
-
-        body {
-            font-family: "DM Sans", sans-serif;
-            background: var(--bg);
-            color: var(--ink);
-            line-height: 1.7;
-            overflow-x: hidden;
-            transition: 0.3s;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        .container {
-            width: min(1160px, 90%);
-            margin: auto;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: "Playfair Display", serif;
-            line-height: 1.12;
-            color: var(--ink);
-        }
-
-        .eyebrow {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            font-size: 0.72rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 28px;
-            height: 1px;
-            background: var(--accent);
-        }
-
-
-        /* =========================================================
-           NAVIGATION
-        ========================================================= */
-
-        nav {
-            position: fixed;
-            z-index: 1000;
-
-            top: 0;
-            left: 0;
-            right: 0;
-
-            height: 72px;
-
-            background: rgba(255, 255, 255, 0.92);
-
-            backdrop-filter: blur(16px);
-
-            border-bottom: 1px solid var(--line);
-        }
-
-        [data-theme="dark"] nav {
-            background: rgba(13, 17, 24, 0.92);
-        }
-
-        .nav-inner {
-            height: 100%;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .brand {
-            text-decoration: none;
-
-            font-weight: 800;
-
-            letter-spacing: 0.08em;
-
-            text-transform: uppercase;
-
-            font-size: 0.9rem;
-        }
-
-        .brand span {
-            color: var(--accent);
-        }
-
-        .links {
-            display: flex;
-            gap: 1.7rem;
-
-            list-style: none;
-        }
-
-        .links a {
-            text-decoration: none;
-
-            font-size: 0.82rem;
-
-            color: var(--body);
-
-            font-weight: 600;
-
-            transition: 0.2s;
-        }
-
-        .links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 0.6rem;
-            align-items: center;
-        }
-
-        .resume {
-            border: 1px solid var(--line);
-
-            border-radius: 5px;
-
-            padding: 0.52rem 0.9rem;
-
-            text-decoration: none;
-
-            font-size: 0.76rem;
-
-            font-weight: 700;
-
-            transition: 0.2s;
-        }
-
-        .resume:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .theme {
-            width: 36px;
-            height: 36px;
-
-            border-radius: 50%;
-
-            border: 1px solid var(--line);
-
-            background: var(--card);
-
-            cursor: pointer;
-
-            color: var(--ink);
-        }
-
-        .menu {
-            display: none;
-
-            border: none;
-            background: none;
-
-            color: var(--ink);
-
-            font-size: 1.4rem;
-
-            cursor: pointer;
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        #home {
-            min-height: 100vh;
-
-            background: var(--paper);
-
-            padding: 120px 0 55px;
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-        .hero {
-            display: grid;
-
-            grid-template-columns: 1.03fr 0.97fr;
-
-            align-items: center;
-
-            min-height: calc(100vh - 175px);
-
-            gap: 3rem;
-        }
-
-        .hero-copy {
-            padding: 2rem 0;
-        }
-
-        .hero h1 {
-            font-size: clamp(3.2rem, 6vw, 5.5rem);
-
-            margin: 1.3rem 0 1.5rem;
-
-            letter-spacing: -0.035em;
-        }
-
-        .hero h1 em {
-            color: var(--accent);
-
-            font-weight: 700;
-        }
-
-        .lead {
-            max-width: 570px;
-
-            color: var(--body);
-
-            font-size: 1rem;
-
-            line-height: 1.9;
-
-            margin-bottom: 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-
-            gap: 0.8rem;
-
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            text-decoration: none;
-
-            border-radius: 5px;
-
-            padding: 0.82rem 1.35rem;
-
-            font-size: 0.8rem;
-
-            font-weight: 700;
-
-            transition: 0.25s;
-        }
-
-        .primary {
-            background: var(--accent);
-
-            color: #ffffff;
-        }
-
-        .primary:hover {
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 10px 25px rgba(223, 96, 79, 0.25);
-        }
-
-        .ghost {
-            border: 1px solid var(--line);
-
-            background: var(--card);
-        }
-
-        .ghost:hover {
-            border-color: var(--accent);
-
-            color: var(--accent);
-        }
-
-        .hero-meta {
-            display: flex;
-
-            gap: 1.8rem;
-
-            margin-top: 2.4rem;
-
-            padding-top: 1.4rem;
-
-            border-top: 1px solid var(--line);
-
-            flex-wrap: wrap;
-        }
-
-        .meta strong {
-            display: block;
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 1.35rem;
-        }
-
-        .meta small {
-            font-size: 0.68rem;
-
-            color: var(--muted);
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.08em;
-        }
-
-
-        /* =========================================================
-           PORTRAIT
-        ========================================================= */
-
-        .portrait {
-            position: relative;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: flex-end;
-
-            height: 620px;
-        }
-
-        .portrait::before {
-            content: "";
-
-            position: absolute;
-
-            width: 420px;
-            height: 420px;
-
-            border-radius: 50%;
-
-            background: var(--accent-soft);
-
-            right: 3%;
-            top: 10%;
-        }
-
-        .portrait::after {
-            content: "AI  •  DATA  •  SOFTWARE";
-
-            position: absolute;
-
-            right: -2%;
-            bottom: 9%;
-
-            font-size: 0.63rem;
-
-            letter-spacing: 0.2em;
-
-            color: var(--muted);
-
-            transform: rotate(-90deg);
-        }
-
-        .portrait img {
-            position: relative;
-
-            z-index: 2;
-
-            max-width: 100%;
-
-            height: 100%;
-
-            object-fit: contain;
-
-            object-position: center bottom;
-        }
-
-
-        /* =========================================================
-           GENERAL SECTIONS
-        ========================================================= */
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-head {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: end;
-
-            gap: 2rem;
-
-            margin-bottom: 3.5rem;
-        }
-
-        .section-head h2 {
-            font-size: clamp(2.1rem, 4vw, 3.3rem);
-
-            margin-top: 0.7rem;
-        }
-
-        .section-head p {
-            max-width: 440px;
-
-            color: var(--body);
-
-            font-size: 0.9rem;
-        }
-
-
-        /* =========================================================
-           ABOUT
-        ========================================================= */
-
-        #about {
-            background: var(--bg);
-        }
-
-        .about-grid {
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 6rem;
-        }
-
-        .about-copy p {
-            color: var(--body);
-
-            font-size: 0.93rem;
-
-            margin-bottom: 1.2rem;
-        }
-
-        .about-copy strong {
-            color: var(--ink);
-        }
-
-        .contact-big {
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(1.45rem, 3vw, 2.2rem);
-
-            text-decoration: none;
-
-            border-bottom: 2px solid var(--line);
-
-            padding-bottom: 0.55rem;
-
-            display: inline-block;
-
-            transition: 0.2s;
-        }
-
-        .contact-big:hover {
-            color: var(--accent);
-
-            border-color: var(--accent);
-        }
-
-        .quick {
-            margin-top: 2.5rem;
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            border-top: 1px solid var(--line);
-
-            border-bottom: 1px solid var(--line);
-        }
-
-        .quick div {
-            padding: 1.2rem 0.8rem;
-
-            border-right: 1px solid var(--line);
-        }
-
-        .quick div:last-child {
-            border-right: none;
-        }
-
-        .quick b {
-            display: block;
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 1.7rem;
-
-            color: var(--accent);
-        }
-
-        .quick span {
-            font-size: 0.65rem;
-
-            text-transform: uppercase;
-
-            color: var(--muted);
-
-            letter-spacing: 0.08em;
-        }
-
-
-        /* =========================================================
-           SKILLS
-        ========================================================= */
-
-        #skills {
-            background: var(--bg);
-        }
-
-        .skill-grid {
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-            gap: 1px;
-
-            background: var(--line);
-
-            border: 1px solid var(--line);
-        }
-
-        .skill-card {
-            background: var(--card);
-
-            padding: 2rem;
-
-            min-height: 220px;
-
-            transition: 0.25s;
-        }
-
-        .skill-card:hover {
-            background: var(--paper);
-        }
-
-        .skill-no {
-            font-size: 0.7rem;
-
-            color: var(--accent);
-
-            font-weight: 700;
-        }
-
-        .skill-card h3 {
-            font-size: 1.35rem;
-
-            margin: 0.9rem 0;
-        }
-
-        .skill-card p {
-            color: var(--body);
-
-            font-size: 0.8rem;
-
-            line-height: 1.8;
-        }
-
-        .tags {
-            display: flex;
-
-            gap: 0.45rem;
-
-            flex-wrap: wrap;
-
-            margin-top: 1rem;
-        }
-
-        .tag {
-            font-size: 0.65rem;
-
-            border: 1px solid var(--line);
-
-            padding: 0.28rem 0.5rem;
-
-            color: var(--body);
-
-            border-radius: 3px;
-        }
-
-
-        /* =========================================================
-           PROJECTS
-        ========================================================= */
-
-        #projects {
-            background: var(--paper);
-        }
-
-        .projects {
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 1.4rem;
-        }
-
-        .project {
-            background: var(--card);
-
-            border: 1px solid var(--line);
-
-            padding: 2rem;
-
-            position: relative;
-
-            overflow: hidden;
-
-            transition: 0.25s;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-
-            box-shadow: var(--shadow);
-        }
-
-        .project.featured {
-            grid-column: span 2;
-
-            background: var(--ink);
-
-            color: #ffffff;
-        }
-
-        .project.featured h3,
-        .project.featured p {
-            color: #ffffff;
-        }
-
-        .project-index {
-            font-size: 0.7rem;
-
-            color: var(--accent);
-
-            font-weight: 700;
-
-            letter-spacing: 0.1em;
-        }
-
-        .project h3 {
-            font-size: 1.7rem;
-
-            margin: 0.8rem 0;
-        }
-
-        .project p {
-            font-size: 0.82rem;
-
-            color: var(--body);
-
-            max-width: 650px;
-        }
-
-        .project.featured p {
-            color: #c9ced8;
-        }
-
-        .project-bottom {
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 1rem;
-
-            align-items: center;
-
-            margin-top: 1.4rem;
-        }
-
-        .stack {
-            font-size: 0.68rem;
-
-            color: var(--muted);
-        }
-
-        .project.featured .stack {
-            color: #aeb5c1;
-        }
-
-        .arrow {
-            font-size: 1.3rem;
-
-            color: var(--accent);
-        }
-
-
-        /* =========================================================
-           CERTIFICATIONS
-        ========================================================= */
-
-        #certifications {
-            background: var(--bg);
-        }
-
-        .cert-list {
-            border-top: 1px solid var(--line);
-        }
-
-        .cert {
-            display: grid;
-
-            grid-template-columns: 70px 1fr auto;
-
-            gap: 1.5rem;
-
-            align-items: center;
-
-            padding: 1.4rem 0;
-
-            border-bottom: 1px solid var(--line);
-        }
-
-        .cert-num {
-            font-family: "Playfair Display", serif;
-
-            font-size: 1.5rem;
-
-            color: var(--accent);
-        }
-
-        .cert h3 {
-            font-size: 1.05rem;
-        }
-
-        .cert p {
-            font-size: 0.75rem;
-
-            color: var(--muted);
-
-            margin-top: 0.2rem;
-        }
-
-        .cert span:last-child {
-            font-size: 0.72rem;
-
-            color: var(--muted);
-
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-           CONTACT
-        ========================================================= */
-
-        #contact {
-            background: var(--paper);
-
-            text-align: center;
-        }
-
-        .contact-title {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-
-            max-width: 850px;
-
-            margin: 1rem auto 1.5rem;
-        }
-
-        .contact-text {
-            max-width: 560px;
-
-            margin: auto;
-
-            color: var(--body);
-
-            font-size: 0.9rem;
-        }
-
-        .socials {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 1.2rem;
-
-            margin-top: 2rem;
-        }
-
-        .socials a {
-            text-decoration: none;
-
-            font-size: 0.75rem;
-
-            font-weight: 700;
-
-            color: var(--body);
-        }
-
-        .socials a:hover {
-            color: var(--accent);
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            padding: 1.5rem 0;
-
-            border-top: 1px solid var(--line);
-
-            font-size: 0.7rem;
-
-            color: var(--muted);
-        }
-
-        .footer-inner {
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 1rem;
-        }
-
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media (max-width: 900px) {
-
-            .links {
-                display: none;
-            }
-
-            .menu {
-                display: block;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-            }
-
-            .portrait {
-                height: 470px;
-
-                order: -1;
-            }
-
-            .portrait img {
-                max-width: 75%;
-            }
-
-            .portrait::before {
-                width: 330px;
-
-                height: 330px;
-
-                right: 50%;
-
-                transform: translateX(50%);
-            }
-
-            .portrait::after {
-                display: none;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-
-                gap: 3rem;
-            }
-
-            .skill-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .project.featured {
-                grid-column: span 1;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            nav {
-                height: 64px;
-            }
-
-            .nav-actions .resume {
-                display: none;
-            }
-
-            .hero {
-                min-height: auto;
-            }
-
-            .hero h1 {
-                font-size: 3.1rem;
-            }
-
-            .portrait {
-                height: 400px;
-            }
-
-            .portrait img {
-                max-width: 90%;
-            }
-
-            section {
-                padding: 72px 0;
-            }
-
-            .skill-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .quick {
-                grid-template-columns: 1fr;
-            }
-
-            .quick div {
-                border-right: 0;
-
-                border-bottom: 1px solid var(--line);
-            }
-
-            .quick div:last-child {
-                border-bottom: none;
-            }
-
-            .cert {
-                grid-template-columns: 45px 1fr;
-            }
-
-            .cert span:last-child {
-                display: none;
-            }
-
-            .section-head {
-                display: block;
-            }
-
-            .section-head p {
-                margin-top: 1rem;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Abrar Ahmed — AI, Data & Software Developer</title>
+  <meta
+    name="description"
+    content="Abrar Ahmed is a Computer Science graduate focused on AI, data, RAG applications and practical software development."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --surface: #ffffff;
+      --text: #171717;
+      --muted: #6d6d6d;
+      --line: #deddd8;
+      --accent: #c54a35;
+      --accent-dark: #9f3827;
+      --nav-bg: rgba(247, 246, 242, 0.92);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    body.dark {
+      --bg: #111111;
+      --surface: #191919;
+      --text: #f5f5f5;
+      --muted: #a7a7a7;
+      --line: #303030;
+      --accent: #e16a50;
+      --accent-dark: #f08a72;
+      --nav-bg: rgba(17, 17, 17, 0.92);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .resume-btn {
+      border: 1px solid var(--text);
+      padding: 9px 17px;
+      border-radius: 3px;
+      color: var(--text) !important;
+      transition: all 0.2s ease;
+    }
+
+    .resume-btn:hover {
+      background: var(--text);
+      color: var(--bg) !important;
+    }
+
+    .theme-toggle,
+    .menu-toggle {
+      border: none;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 19px;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 76px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 80px;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 7vw, 88px);
+      line-height: 0.98;
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      max-width: 620px;
+      font-size: 19px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border: 1px solid var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 25px;
+      margin-top: 42px;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 12px;
+      border-left: 2px solid var(--accent);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-image-wrapper::before {
+      content: "";
+      position: absolute;
+      width: 85%;
+      height: 85%;
+      right: -20px;
+      bottom: -20px;
+      border: 1px solid var(--accent);
+      z-index: 0;
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 430px;
+      margin-left: auto;
+      aspect-ratio: 0.82;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(10%);
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 110px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(40px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .about-contact {
+      margin-top: 35px;
+      font-size: 15px;
+    }
+
+    .about-contact a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+    }
+
+    .stat {
+      padding: 25px 20px 20px 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: none;
+      padding-left: 20px;
+    }
+
+    .stat:nth-child(2) {
+      padding-left: 20px;
+    }
+
+    .stat-number {
+      font-family: "Playfair Display", serif;
+      font-size: 38px;
+      font-weight: 600;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 55px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 28px;
+      min-height: 250px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card h3 {
+      font-size: 17px;
+      margin-bottom: 22px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .skill-tag {
+      border: 1px solid var(--line);
+      padding: 7px 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* PROJECTS */
+
+    .projects-list {
+      margin-top: 55px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 25px;
+      align-items: start;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .project:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-number {
+      font-family: "Playfair Display", serif;
+      font-size: 23px;
+      color: var(--accent);
+    }
+
+    .project h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 27px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 15px;
+    }
+
+    .project-tech span {
+      color: var(--muted);
+      font-size: 11px;
+      border: 1px solid var(--line);
+      padding: 5px 8px;
+    }
+
+    .project-link {
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 4px;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+    }
+
+    /* CERTIFICATIONS */
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      margin-top: 50px;
+      border-top: 1px solid var(--line);
+    }
+
+    .cert {
+      padding: 27px 25px 27px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cert:nth-child(even) {
+      padding-left: 25px;
+      border-left: 1px solid var(--line);
+    }
+
+    .cert h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .cert p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+      padding: 130px 0;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .contact-box h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(45px, 6vw, 75px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      max-width: 750px;
+    }
+
+    .contact-box h2 span {
+      color: var(--accent);
+    }
+
+    .contact-info {
+      border-left: 1px solid var(--line);
+      padding-left: 30px;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-links a {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 25px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        padding: 90px 0 80px;
+      }
+
+      .hero-image-wrapper {
+        max-width: 420px;
+        margin: auto;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-info {
+        border-left: none;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: 88%;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .skills-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cert:nth-child(even) {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .project {
+        grid-template-columns: 40px 1fr;
+      }
+
+      .project-link {
+        grid-column: 2;
+        width: fit-content;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat,
+      .stat:nth-child(2),
+      .stat:last-child {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding: 18px 0;
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
 
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================== -->
+      <a href="#home" class="logo">ABRAR.</a>
 
-    <nav>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
 
-        <div class="container nav-inner">
+        <a
+          href="Abrar_Ahmed_Resume.pdf"
+          target="_blank"
+          class="resume-btn"
+        >
+          Resume
+        </a>
+      </div>
 
-            <a class="brand" href="#home">
-                ABRAR<span>.</span>
+      <div style="display:flex;align-items:center;gap:18px;">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+        >
+          ☾
+        </button>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <main id="home">
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            Computer Science · Karachi, Pakistan
+          </div>
+
+          <h1>
+            Hi, I'm <span>Abrar Ahmed.</span>
+          </h1>
+
+          <p class="hero-description">
+            AI, data and software developer focused on building practical
+            digital products — from source-grounded RAG applications to
+            data-driven web solutions.
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#projects" class="btn btn-primary">
+              Explore my work
             </a>
 
-            <ul class="links">
+            <a
+              href="Abrar_Ahmed_Resume.pdf"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              View resume
+            </a>
 
-                <li>
-                    <a href="#about">About</a>
-                </li>
+          </div>
 
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
+          <div class="hero-meta">
 
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#certifications">
-                        Certificates
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-
-            <div class="nav-actions">
-
-                <a
-                    class="resume"
-                    href="Abrar_Ahmed_Resume.pdf"
-                    target="_blank"
-                >
-                    Resume ↗
-                </a>
-
-                <button
-                    class="theme"
-                    id="theme"
-                    aria-label="Toggle theme"
-                >
-                    ☾
-                </button>
-
-                <button
-                    class="menu"
-                    id="menu"
-                >
-                    ☰
-                </button>
-
+            <div class="hero-meta-item">
+              AI & RAG
             </div>
+
+            <div class="hero-meta-item">
+              Python
+            </div>
+
+            <div class="hero-meta-item">
+              BS Computer Science
+            </div>
+
+          </div>
 
         </div>
 
-    </nav>
 
+        <div class="hero-image-wrapper">
 
-
-    <main>
-
-
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
-
-        <section id="home">
-
-            <div class="container hero">
-
-
-                <div class="hero-copy">
-
-                    <div class="eyebrow">
-                        Computer Science · Karachi, Pakistan
-                    </div>
-
-
-                    <h1>
-                        Hi, I'm
-                        <em>Abrar</em>
-                        Ahmed.
-                    </h1>
-
-
-                    <p class="lead">
-
-                        AI, data and software developer focused on
-                        building practical digital products — from
-                        source-grounded RAG applications to
-                        data-driven web solutions.
-
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-                        <a
-                            class="btn primary"
-                            href="#projects"
-                        >
-                            Explore my work ↘
-                        </a>
-
-                        <a
-                            class="btn ghost"
-                            href="Abrar_Ahmed_Resume.pdf"
-                            target="_blank"
-                        >
-                            View resume ↗
-                        </a>
-
-                    </div>
-
-
-                    <div class="hero-meta">
-
-                        <div class="meta">
-
-                            <strong>
-                                AI & RAG
-                            </strong>
-
-                            <small>
-                                Focus
-                            </small>
-
-                        </div>
-
-
-                        <div class="meta">
-
-                            <strong>
-                                Python
-                            </strong>
-
-                            <small>
-                                Core stack
-                            </small>
-
-                        </div>
-
-
-                        <div class="meta">
-
-                            <strong>
-                                BS CS
-                            </strong>
-
-                            <small>
-                                Graduate
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="portrait">
-
-                    <img
-                        src="Abrar_Pic.jpg"
-                        alt="Abrar Ahmed"
-                    >
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             ABOUT
-        ====================================================== -->
-
-        <section id="about">
-
-            <div class="container">
-
-
-                <div class="section-head">
-
-                    <div>
-
-                        <div class="eyebrow">
-                            A little about me
-                        </div>
-
-                        <h2>
-                            Building useful things,
-                            <br>
-                            not just demos.
-                        </h2>
-
-                    </div>
-
-
-                    <p>
-                        My work sits where software development,
-                        data and applied AI meet.
-                    </p>
-
-                </div>
-
-
-
-                <div class="about-grid">
-
-
-                    <div class="about-copy">
-
-                        <p>
-
-                            I'm a
-                            <strong>
-                                Computer Science graduate
-                            </strong>
-                            based in Karachi, Pakistan,
-                            with hands-on experience across
-                            Python, data analysis, web development,
-                            networking and AI-focused projects.
-
-                        </p>
-
-
-                        <p>
-
-                            I enjoy turning an idea into something
-                            people can actually use — with clean
-                            interfaces, practical workflows and
-                            technology chosen for the problem
-                            rather than for the buzzword.
-
-                        </p>
-
-
-                        <p>
-
-                            Currently, I'm especially interested in
-                            <strong>
-                                Generative AI, RAG, data analysis
-                                and software development
-                            </strong>,
-                            while continuing to grow through
-                            real-world projects and entry-level
-                            opportunities.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div>
-
-                        <div class="eyebrow">
-                            Let's connect
-                        </div>
-
-
-                        <a
-                            class="contact-big"
-                            href="mailto:Abrarsoomro35@gmail.com"
-                        >
-                            Abrarsoomro35@gmail.com ↗
-                        </a>
-
-
-                        <div class="quick">
-
-                            <div>
-
-                                <b>
-                                    4+
-                                </b>
-
-                                <span>
-                                    Core areas
-                                </span>
-
-                            </div>
-
-
-                            <div>
-
-                                <b>
-                                    5+
-                                </b>
-
-                                <span>
-                                    Featured projects
-                                </span>
-
-                            </div>
-
-
-                            <div>
-
-                                <b>
-                                    2025
-                                </b>
-
-                                <span>
-                                    BS CS
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             SKILLS
-        ====================================================== -->
-
-        <section id="skills">
-
-            <div class="container">
-
-
-                <div class="section-head">
-
-                    <div>
-
-                        <div class="eyebrow">
-                            What I work with
-                        </div>
-
-                        <h2>
-                            Skills & toolkit.
-                        </h2>
-
-                    </div>
-
-
-                    <p>
-
-                        A practical stack spanning programming,
-                        AI, data, web development and
-                        developer tools.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="skill-grid">
-
-
-                    <article class="skill-card">
-
-                        <span class="skill-no">
-                            01
-                        </span>
-
-                        <h3>
-                            Programming
-                        </h3>
-
-                        <p>
-
-                            Problem solving and application
-                            development with modern programming
-                            fundamentals.
-
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                Python
-                            </span>
-
-                            <span class="tag">
-                                Java
-                            </span>
-
-                            <span class="tag">
-                                C++
-                            </span>
-
-                            <span class="tag">
-                                JavaScript
-                            </span>
-
-                            <span class="tag">
-                                Kotlin
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="skill-card">
-
-                        <span class="skill-no">
-                            02
-                        </span>
-
-                        <h3>
-                            AI & Data
-                        </h3>
-
-                        <p>
-
-                            Data analysis, visualization,
-                            machine learning and practical
-                            Generative AI workflows.
-
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                RAG
-                            </span>
-
-                            <span class="tag">
-                                Machine Learning
-                            </span>
-
-                            <span class="tag">
-                                Power BI
-                            </span>
-
-                            <span class="tag">
-                                Pandas
-                            </span>
-
-                            <span class="tag">
-                                Generative AI
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="skill-card">
-
-                        <span class="skill-no">
-                            03
-                        </span>
-
-                        <h3>
-                            Web
-                        </h3>
-
-                        <p>
-
-                            Responsive interfaces and application
-                            experiences with a focus on usability
-                            and clean code.
-
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                React
-                            </span>
-
-                            <span class="tag">
-                                HTML/CSS
-                            </span>
-
-                            <span class="tag">
-                                JavaScript
-                            </span>
-
-                            <span class="tag">
-                                Streamlit
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="skill-card">
-
-                        <span class="skill-no">
-                            04
-                        </span>
-
-                        <h3>
-                            Tools
-                        </h3>
-
-                        <p>
-
-                            Comfortable with the everyday tools
-                            used to build, test, version and ship
-                            projects.
-
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                Git
-                            </span>
-
-                            <span class="tag">
-                                GitHub
-                            </span>
-
-                            <span class="tag">
-                                MySQL
-                            </span>
-
-                            <span class="tag">
-                                VS Code
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             PROJECTS
-        ====================================================== -->
-
-        <section id="projects">
-
-            <div class="container">
-
-
-                <div class="section-head">
-
-                    <div>
-
-                        <div class="eyebrow">
-                            Selected work
-                        </div>
-
-                        <h2>
-                            Projects with a purpose.
-                        </h2>
-
-                    </div>
-
-
-                    <p>
-
-                        A few projects that show how I approach
-                        AI, data and software problems.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="projects">
-
-
-                    <!-- FEATURED -->
-
-                    <article class="project featured">
-
-                        <span class="project-index">
-                            01 · FEATURED
-                        </span>
-
-                        <h3>
-                            Maamta AI
-                        </h3>
-
-                        <p>
-
-                            A source-grounded maternal and
-                            newborn health assistant for Pakistan.
-                            It combines structured user inputs,
-                            safety assessment, relevant guideline
-                            retrieval and Groq-powered responses
-                            with source awareness.
-
-                        </p>
-
-
-                        <div class="project-bottom">
-
-                            <span class="stack">
-                                Python · Streamlit · Groq ·
-                                RAG · GitHub
-                            </span>
-
-                            <span class="arrow">
-                                ↗
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROJECT 2 -->
-
-                    <article class="project">
-
-                        <span class="project-index">
-                            02
-                        </span>
-
-                        <h3>
-                            CineMatch
-                        </h3>
-
-                        <p>
-
-                            A Streamlit movie recommendation
-                            app using the TMDB 5000 dataset
-                            and content-based similarity to
-                            suggest relevant films.
-
-                        </p>
-
-
-                        <div class="project-bottom">
-
-                            <span class="stack">
-                                Python · Streamlit · Pandas · ML
-                            </span>
-
-                            <span class="arrow">
-                                ↗
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROJECT 3 -->
-
-                    <article class="project">
-
-                        <span class="project-index">
-                            03
-                        </span>
-
-                        <h3>
-                            Student Performance Prediction
-                        </h3>
-
-                        <p>
-
-                            Data analysis and machine learning
-                            project focused on understanding
-                            student performance and building
-                            predictive models from structured data.
-
-                        </p>
-
-
-                        <div class="project-bottom">
-
-                            <span class="stack">
-                                Python · Pandas ·
-                                Scikit-learn · Visualization
-                            </span>
-
-                            <span class="arrow">
-                                ↗
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROJECT 4 -->
-
-                    <article class="project">
-
-                        <span class="project-index">
-                            04
-                        </span>
-
-                        <h3>
-                            Alumni Management System
-                        </h3>
-
-                        <p>
-
-                            A university-focused web application
-                            for managing alumni information and
-                            related records through a structured
-                            database-backed workflow.
-
-                        </p>
-
-
-                        <div class="project-bottom">
-
-                            <span class="stack">
-                                PHP · Laravel · MySQL · HTML/CSS
-                            </span>
-
-                            <span class="arrow">
-                                ↗
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROJECT 5 -->
-
-                    <article class="project">
-
-                        <span class="project-index">
-                            05
-                        </span>
-
-                        <h3>
-                            Data Analysis & Visualization
-                        </h3>
-
-                        <p>
-
-                            Exploratory data analysis work
-                            turning raw datasets into readable
-                            insights, charts and decision-friendly
-                            summaries.
-
-                        </p>
-
-
-                        <div class="project-bottom">
-
-                            <span class="stack">
-                                Python · Pandas · Matplotlib
-                            </span>
-
-                            <span class="arrow">
-                                ↗
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             CERTIFICATIONS
-        ====================================================== -->
-
-        <section id="certifications">
-
-            <div class="container">
-
-
-                <div class="section-head">
-
-                    <div>
-
-                        <div class="eyebrow">
-                            Continuous learning
-                        </div>
-
-                        <h2>
-                            Certifications.
-                        </h2>
-
-                    </div>
-
-
-                    <p>
-
-                        Recent learning focused on AI,
-                        prompt engineering and practical
-                        data workflows.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="cert-list">
-
-
-                    <div class="cert">
-
-                        <span class="cert-num">
-                            01
-                        </span>
-
-                        <div>
-
-                            <h3>
-                                Google AI Essentials
-                            </h3>
-
-                            <p>
-                                Coursera · Google
-                            </p>
-
-                        </div>
-
-                        <span>
-                            AI
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="cert">
-
-                        <span class="cert-num">
-                            02
-                        </span>
-
-                        <div>
-
-                            <h3>
-                                Prompt Engineering Essentials
-                            </h3>
-
-                            <p>
-                                Coursera · Google
-                            </p>
-
-                        </div>
-
-                        <span>
-                            AI
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="cert">
-
-                        <span class="cert-num">
-                            03
-                        </span>
-
-                        <div>
-
-                            <h3>
-                                Prompt Design for Work Tasks
-                            </h3>
-
-                            <p>
-                                Coursera · Google
-                            </p>
-
-                        </div>
-
-                        <span>
-                            AI
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="cert">
-
-                        <span class="cert-num">
-                            04
-                        </span>
-
-                        <div>
-
-                            <h3>
-                                Speed Up Data Analysis
-                                & Presentation Building
-                            </h3>
-
-                            <p>
-                                Coursera · Google
-                            </p>
-
-                        </div>
-
-                        <span>
-                            DATA
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             CONTACT
-        ====================================================== -->
-
-        <section id="contact">
-
-            <div class="container">
-
-                <div
-                    class="eyebrow"
-                    style="justify-content:center"
-                >
-                    Have an opportunity?
-                </div>
-
-
-                <h2 class="contact-title">
-
-                    Let's build something
-                    useful together.
-
-                </h2>
-
-
-                <p class="contact-text">
-
-                    I'm open to internships, entry-level
-                    roles, freelance opportunities and
-                    collaborative projects across AI,
-                    data, software and IT.
-
-                </p>
-
-
-                <a
-                    class="btn primary"
-                    style="margin-top:2rem"
-                    href="mailto:Abrarsoomro35@gmail.com"
-                >
-                    Start a conversation ↗
-                </a>
-
-
-                <div class="socials">
-
-                    <a
-                        href="https://github.com/abrar35-cyber"
-                        target="_blank"
-                    >
-                        GitHub ↗
-                    </a>
-
-                    <a
-                        href="https://www.linkedin.com/in/abrar-ahmed-soomro/"
-                        target="_blank"
-                    >
-                        LinkedIn ↗
-                    </a>
-
-                    <a
-                        href="mailto:Abrarsoomro35@gmail.com"
-                    >
-                        Email ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer>
-
-        <div class="container footer-inner">
-
-            <span>
-                © 2026 Abrar Ahmed
-            </span>
-
-            <span>
-                AI · Data · Software
-            </span>
+          <img
+            src="Abrar_Pic.jpg"
+            alt="Abrar Ahmed"
+            class="hero-image"
+          />
 
         </div>
 
-    </footer>
+      </div>
+    </section>
 
 
+    <!-- ABOUT -->
+    <section id="about">
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+      <div class="container about-grid">
 
-    <script>
+        <div>
 
-        const root =
-            document.documentElement;
+          <div class="section-label">
+            About me
+          </div>
 
-        const theme =
-            document.getElementById("theme");
+          <h2 class="section-title">
+            Building useful things,
+            not just demos.
+          </h2>
 
-
-        /* DARK MODE */
-
-        const saved =
-            localStorage.getItem("theme");
-
-        if (saved) {
-            root.dataset.theme = saved;
-        }
+        </div>
 
 
-        function updateIcon() {
+        <div class="about-text">
 
-            theme.textContent =
-                root.dataset.theme === "dark"
-                    ? "☀"
-                    : "☾";
+          <p>
+            I'm a Computer Science graduate with an interest in artificial
+            intelligence, data analysis and software development.
+          </p>
 
-        }
+          <p>
+            I enjoy turning ideas into practical applications — whether
+            that's a recommendation system, a data-driven application,
+            a web solution, or an AI system that connects users with
+            reliable information.
+          </p>
 
-        updateIcon();
+          <p>
+            My current focus is on building stronger skills in AI,
+            Generative AI, RAG systems, data analysis and modern software
+            development while continuing to work on real-world projects.
+          </p>
 
-
-        theme.addEventListener(
-            "click",
-            () => {
-
-                root.dataset.theme =
-                    root.dataset.theme === "dark"
-                        ? "light"
-                        : "dark";
-
-                localStorage.setItem(
-                    "theme",
-                    root.dataset.theme
-                );
-
-                updateIcon();
-
-            }
-        );
+          <div class="about-contact">
+            <a href="mailto:Abrarsoomro35@gmail.com">
+              Abrarsoomro35@gmail.com
+            </a>
+          </div>
 
 
-        /* MOBILE MENU */
+          <div class="stats">
 
-        const menu =
-            document.getElementById("menu");
+            <div class="stat">
+              <div class="stat-number">2025</div>
+              <div class="stat-label">BS CS Graduate</div>
+            </div>
 
-        const links =
-            document.querySelector(".links");
+            <div class="stat">
+              <div class="stat-number">4+</div>
+              <div class="stat-label">Core Areas</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Featured Projects</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
-        menu.addEventListener(
-            "click",
-            () => {
+    <!-- SKILLS -->
+    <section id="skills">
 
-                if (links.style.display === "flex") {
+      <div class="container">
 
-                    links.style.display = "none";
+        <div class="section-label">
+          Skills
+        </div>
 
-                } else {
+        <h2 class="section-title">
+          What I work with.
+        </h2>
 
-                    links.style.display = "flex";
+        <p class="section-intro">
+          A practical mix of programming, AI, data, web development and
+          software tools that I use across projects and learning.
+        </p>
 
-                    links.style.position =
-                        "absolute";
 
-                    links.style.top =
-                        "64px";
+        <div class="skills-grid">
 
-                    links.style.left =
-                        "0";
+          <div class="skill-card">
 
-                    links.style.right =
-                        "0";
+            <h3>Programming</h3>
 
-                    links.style.padding =
-                        "1rem 5%";
+            <div class="skill-list">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Kotlin</span>
+            </div>
 
-                    links.style.background =
-                        "var(--bg)";
+          </div>
 
-                    links.style.flexDirection =
-                        "column";
 
-                    links.style.borderBottom =
-                        "1px solid var(--line)";
-                }
+          <div class="skill-card">
 
-            }
-        );
+            <h3>AI & Data</h3>
 
-    </script>
+            <div class="skill-list">
+              <span class="skill-tag">RAG</span>
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">Generative AI</span>
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">Data Analysis</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <h3>Web Development</h3>
+
+            <div class="skill-list">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Streamlit</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <h3>Tools</h3>
+
+            <div class="skill-list">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">VS Code</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-label">
+          Selected work
+        </div>
+
+        <h2 class="section-title">
+          Projects I've built.
+        </h2>
+
+        <p class="section-intro">
+          A selection of projects covering AI, machine learning,
+          recommendation systems, data analysis and web applications.
+        </p>
+
+
+        <div class="projects-list">
+
+
+          <!-- PROJECT 01 -->
+          <article class="project">
+
+            <div class="project-number">
+              01
+            </div>
+
+            <div>
+
+              <h3>Maamta AI</h3>
+
+              <p>
+                A source-grounded maternal and newborn health assistant
+                designed for Pakistan. The application uses RAG to retrieve
+                relevant guideline information and Groq-powered generation
+                to provide grounded responses with source context.
+              </p>
+
+              <div class="project-tech">
+                <span>Python</span>
+                <span>Streamlit</span>
+                <span>Groq</span>
+                <span>RAG</span>
+                <span>AI</span>
+              </div>
+
+            </div>
+
+            <a
+              href="https://github.com/abrar35-cyber/Maamta_AI"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub ↗
+            </a>
+
+          </article>
+
+
+          <!-- PROJECT 02 -->
+          <article class="project">
+
+            <div class="project-number">
+              02
+            </div>
+
+            <div>
+
+              <h3>CineMatch</h3>
+
+              <p>
+                A content-based movie recommendation application built
+                around the TMDB 5000 dataset. Users can discover movies
+                based on similarities between their selected titles.
+              </p>
+
+              <div class="project-tech">
+                <span>Python</span>
+                <span>Streamlit</span>
+                <span>Machine Learning</span>
+                <span>TMDB</span>
+              </div>
+
+            </div>
+
+            <a
+              href="https://github.com/abrar35-cyber"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub ↗
+            </a>
+
+          </article>
+
+
+          <!-- PROJECT 03 -->
+          <article class="project">
+
+            <div class="project-number">
+              03
+            </div>
+
+            <div>
+
+              <h3>Student Performance Prediction</h3>
+
+              <p>
+                A machine learning project focused on analyzing student
+                performance data and predicting academic outcomes using
+                data preprocessing, analysis and predictive modelling.
+              </p>
+
+              <div class="project-tech">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>Machine Learning</span>
+                <span>Data Analysis</span>
+              </div>
+
+            </div>
+
+            <a
+              href="https://github.com/abrar35-cyber/student-performance-prediction"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub ↗
+            </a>
+
+          </article>
+
+
+          <!-- PROJECT 04 -->
+          <article class="project">
+
+            <div class="project-number">
+              04
+            </div>
+
+            <div>
+
+              <h3>Alumni Management System</h3>
+
+              <p>
+                A university alumni management application developed
+                as a final-year project to organize alumni information,
+                records and interactions through a centralized system.
+              </p>
+
+              <div class="project-tech">
+                <span>PHP</span>
+                <span>Laravel</span>
+                <span>MySQL</span>
+                <span>Web Development</span>
+              </div>
+
+            </div>
+
+            <a
+              href="https://github.com/abrar35-cyber"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub ↗
+            </a>
+
+          </article>
+
+
+          <!-- PROJECT 05 -->
+          <article class="project">
+
+            <div class="project-number">
+              05
+            </div>
+
+            <div>
+
+              <h3>Data Analysis & Visualization</h3>
+
+              <p>
+                Data analysis work involving data cleaning, exploratory
+                analysis, visualization and presentation of insights
+                from structured datasets.
+              </p>
+
+              <div class="project-tech">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>Power BI</span>
+                <span>Visualization</span>
+              </div>
+
+            </div>
+
+            <a
+              href="https://github.com/abrar35-cyber"
+              target="_blank"
+              class="project-link"
+            >
+              GitHub ↗
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+
+      <div class="container">
+
+        <div class="section-label">
+          Certifications
+        </div>
+
+        <h2 class="section-title">
+          Continuous learning.
+        </h2>
+
+        <p class="section-intro">
+          Certifications and learning programs that support my work across
+          AI, prompt engineering and data analysis.
+        </p>
+
+
+        <div class="cert-grid">
+
+          <div class="cert">
+            <h3>Google AI Essentials</h3>
+            <p>Coursera / Google</p>
+          </div>
+
+          <div class="cert">
+            <h3>Google Prompt Engineering Essentials</h3>
+            <p>Coursera / Google</p>
+          </div>
+
+          <div class="cert">
+            <h3>Prompt Design for Work Tasks</h3>
+            <p>Professional AI learning</p>
+          </div>
+
+          <div class="cert">
+            <h3>Speed Up Data Analysis & Presentation Building</h3>
+            <p>Professional data and AI learning</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+
+      <div class="container contact-box">
+
+        <div>
+
+          <div class="section-label">
+            Get in touch
+          </div>
+
+          <h2>
+            Let's build something
+            <span>useful</span> together.
+          </h2>
+
+        </div>
+
+
+        <div class="contact-info">
+
+          <p>
+            I'm open to internships, entry-level opportunities,
+            freelance work and collaborative projects in AI,
+            data, software and IT.
+          </p>
+
+          <div class="contact-links">
+
+            <a href="mailto:Abrarsoomro35@gmail.com">
+              Email ↗
+            </a>
+
+            <a
+              href="https://github.com/abrar35-cyber"
+              target="_blank"
+            >
+              GitHub ↗
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/abrar-ahmed-soomro/"
+              target="_blank"
+            >
+              LinkedIn ↗
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container footer-inner">
+
+      <p>
+        © 2026 Abrar Ahmed. All rights reserved.
+      </p>
+
+      <p>
+        AI · Data · Software
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    const themeToggle = document.getElementById("themeToggle");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    /* Theme */
+
+    themeToggle.addEventListener("click", () => {
+
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        themeToggle.textContent = "☀";
+        localStorage.setItem("theme", "dark");
+      } else {
+        themeToggle.textContent = "☾";
+        localStorage.setItem("theme", "light");
+      }
+
+    });
+
+
+    /* Remember theme */
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      themeToggle.textContent = "☀";
+    }
+
+
+    /* Mobile menu */
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+
+      if (navLinks.classList.contains("active")) {
+        menuToggle.textContent = "✕";
+      } else {
+        menuToggle.textContent = "☰";
+      }
+    });
+
+
+    /* Close mobile menu after clicking */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+
+      });
+
+    });
+
+  </script>
 
 </body>
-
 </html>
