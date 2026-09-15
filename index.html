@@ -58,6 +58,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
@@ -94,24 +95,27 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 15px;
     }
 
     .logo {
       font-size: 18px;
       font-weight: 700;
       letter-spacing: 0.08em;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 24px;
     }
 
     .nav-links a {
       font-size: 14px;
       color: var(--muted);
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -120,10 +124,11 @@
 
     .resume-btn {
       border: 1px solid var(--text);
-      padding: 9px 17px;
+      padding: 8px 15px;
       border-radius: 3px;
       color: var(--text) !important;
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
 
     .resume-btn:hover {
@@ -156,7 +161,7 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 80px;
+      gap: 60px;
       align-items: center;
       padding: 80px 0;
     }
@@ -172,7 +177,7 @@
 
     .hero h1 {
       font-family: "Playfair Display", serif;
-      font-size: clamp(52px, 7vw, 88px);
+      font-size: clamp(48px, 6.5vw, 84px);
       line-height: 0.98;
       font-weight: 600;
       letter-spacing: -0.045em;
@@ -240,6 +245,9 @@
 
     .hero-image-wrapper {
       position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
     }
 
     .hero-image-wrapper::before {
@@ -247,8 +255,8 @@
       position: absolute;
       width: 85%;
       height: 85%;
-      right: -20px;
-      bottom: -20px;
+      right: -15px;
+      bottom: -15px;
       border: 1px solid var(--accent);
       z-index: 0;
     }
@@ -257,8 +265,6 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 430px;
-      margin-left: auto;
       aspect-ratio: 0.82;
       object-fit: cover;
       object-position: center top;
@@ -283,7 +289,7 @@
 
     .section-title {
       font-family: "Playfair Display", serif;
-      font-size: clamp(40px, 5vw, 62px);
+      font-size: clamp(38px, 4.5vw, 62px);
       line-height: 1.05;
       letter-spacing: -0.035em;
       font-weight: 600;
@@ -506,7 +512,7 @@
 
     .contact-box h2 {
       font-family: "Playfair Display", serif;
-      font-size: clamp(45px, 6vw, 75px);
+      font-size: clamp(42px, 5.5vw, 75px);
       line-height: 1;
       letter-spacing: -0.04em;
       max-width: 750px;
@@ -564,7 +570,7 @@
 
     /* MOBILE */
 
-    @media (max-width: 900px) {
+    @media (max-width: 992px) {
       .nav-links {
         position: absolute;
         top: 76px;
@@ -577,6 +583,7 @@
         align-items: flex-start;
         gap: 20px;
         display: none;
+        box-shadow: var(--shadow);
       }
 
       .nav-links.active {
@@ -603,7 +610,7 @@
       }
 
       .hero-image-wrapper {
-        max-width: 420px;
+        max-width: 380px;
         margin: auto;
       }
 
@@ -625,7 +632,7 @@
       }
 
       .hero h1 {
-        font-size: 52px;
+        font-size: 44px;
       }
 
       .hero-description {
@@ -703,7 +710,7 @@
         </a>
       </div>
 
-      <div style="display:flex;align-items:center;gap:18px;">
+      <div style="display:flex;align-items:center;gap:16px;">
         <button
           class="theme-toggle"
           id="themeToggle"
